@@ -22,7 +22,7 @@ const targetWrap = document.getElementById("targetWrap");
 const slapBtn = document.getElementById("slapBtn");
 const chantDisplay = document.getElementById("chantDisplay");
 const chantLog = document.getElementById("chantLog");
-const slipper = document.getElementById("slipper");
+let slipper = document.getElementById("slipper");
 let chantIndex = 0;
 let sourceIndex = 0;
 
@@ -48,7 +48,13 @@ targetImg.addEventListener("load", () => {
 
 if (slipper) {
   slipper.addEventListener("error", () => {
-    slipper.remove();
+    const fallback = document.createElement("div");
+    fallback.className = "slipper fallback";
+    fallback.textContent = "🩴";
+    fallback.dataset.stance = slipper.dataset.stance;
+    fallback.setAttribute("aria-hidden", "true");
+    slipper.replaceWith(fallback);
+    slipper = fallback;
   });
 }
 

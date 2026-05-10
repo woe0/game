@@ -86,6 +86,12 @@ h2 {
   pointer-events: none;
 }
 
+.slipper.fallback {
+  width: auto;
+  font-size: 72px;
+  line-height: 1;
+}
+
 .slipper[data-stance="top"] {
   --slap-x: 0px;
   --slap-y: -180px;
