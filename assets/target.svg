@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320">
+  <rect width="320" height="320" fill="#ffe4a3" stroke="#2d2620" stroke-width="8" shape-rendering="crispEdges" />
+  <rect x="24" y="24" width="272" height="272" fill="#fff7e0" stroke="#2d2620" stroke-width="6" shape-rendering="crispEdges" />
+  <text x="50%" y="45%" text-anchor="middle" font-family="Courier New, monospace" font-size="20" fill="#2d2620">
+    ضع الصورة هنا
+  </text>
+  <text x="50%" y="60%" text-anchor="middle" font-family="Courier New, monospace" font-size="14" fill="#2d2620">
+    assets/target.png
+  </text>
+</svg>
