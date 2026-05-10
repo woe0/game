@@ -105,9 +105,10 @@ const triggerSlap = () => {
 
   targetWrap.classList.remove("hit");
   slipper.classList.remove("slap");
-  void slipper.offsetWidth;
-  slipper.classList.add("slap");
-  targetWrap.classList.add("hit");
+  window.requestAnimationFrame(() => {
+    slipper.classList.add("slap");
+    targetWrap.classList.add("hit");
+  });
 
   window.setTimeout(() => {
     slipper.classList.remove("slap");
