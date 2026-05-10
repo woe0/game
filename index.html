@@ -8,38 +8,18 @@
   </head>
   <body>
     <div class="app">
-      <header class="header">
-        <div>
-          <p class="tag">لعبة ترفيهية سريعة</p>
-          <h1>شبشب الهجاء</h1>
-          <p class="subtitle">اضغط الزر واضرب الصورة، والجملة تتكرر بطريقتك.</p>
-        </div>
-        <div class="controls">
-          <label class="control">
-            <span>مقام النعل والحذاء</span>
-            <select id="stance">
-              <option value="top">من الأعلى</option>
-              <option value="left">من اليسار</option>
-              <option value="right">من اليمين</option>
-              <option value="bottom">من الأسفل</option>
-            </select>
-          </label>
-          <label class="control">
-            <span>موضع الهجاء</span>
-            <select id="chantMode">
-              <option value="sequence">تتابع</option>
-              <option value="random">عشوائي</option>
-              <option value="crescendo">تصاعدي</option>
-            </select>
-          </label>
-        </div>
-      </header>
-
       <main class="main">
         <section class="stage">
+          <h2>مقام النعل والحذاء</h2>
           <div class="target-wrap" id="targetWrap">
             <img id="target" class="target" alt="الصورة المستهدفة" />
-            <div class="slipper" id="slipper" aria-hidden="true">🩴</div>
+            <img
+              class="slipper"
+              id="slipper"
+              src="assets/slipper.png"
+              alt="شبشب"
+              data-stance="top"
+            />
           </div>
           <button id="slapBtn" class="slap-btn">اضرب بالشبشب</button>
           <p class="hint">زر المسافة أو Enter يشتغل كمان.</p>
