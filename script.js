@@ -22,6 +22,7 @@ const targetWrap = document.getElementById("targetWrap");
 const slapBtn = document.getElementById("slapBtn");
 const chantDisplay = document.getElementById("chantDisplay");
 const chantLog = document.getElementById("chantLog");
+const slipper = document.getElementById("slipper");
 let chantIndex = 0;
 let sourceIndex = 0;
 
@@ -44,6 +45,12 @@ targetImg.addEventListener("load", () => {
   targetWrap.classList.remove("missing");
   targetImg.style.opacity = "1";
 });
+
+if (slipper) {
+  slipper.addEventListener("error", () => {
+    slipper.remove();
+  });
+}
 
 loadTarget();
 
