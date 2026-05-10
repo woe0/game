@@ -22,19 +22,10 @@ const targetWrap = document.getElementById("targetWrap");
 const slapBtn = document.getElementById("slapBtn");
 const chantDisplay = document.getElementById("chantDisplay");
 const chantLog = document.getElementById("chantLog");
-const stanceSelect = document.getElementById("stance");
-const chantModeSelect = document.getElementById("chantMode");
 const slipper = document.getElementById("slipper");
 
 let chantIndex = 0;
-let crescendoLevel = 0;
-let crescendoPhrase = null;
 let sourceIndex = 0;
-
-const resetCrescendo = () => {
-  crescendoLevel = 0;
-  crescendoPhrase = null;
-};
 
 const loadTarget = () => {
   targetImg.src = targetSources[sourceIndex];
@@ -58,32 +49,10 @@ targetImg.addEventListener("load", () => {
 
 loadTarget();
 
-const getPhrase = (mode) => {
-  if (mode === "random") {
-    return phrases[Math.floor(Math.random() * phrases.length)];
-  }
-
-  if (mode === "crescendo") {
-    if (!crescendoPhrase) {
-      crescendoPhrase = phrases[chantIndex % phrases.length];
-    }
-    const nextLevel = (crescendoLevel % 4) + 1;
-    const phrase = `${crescendoPhrase} ${"!".repeat(nextLevel)}`;
-    crescendoLevel = nextLevel;
-    if (crescendoLevel === 4) {
-      chantIndex += 1;
-      resetCrescendo();
-    }
-    return phrase;
-  }
-
+const getPhrase = () => {
   const phrase = phrases[chantIndex % phrases.length];
   chantIndex += 1;
   return phrase;
-};
-
-const updateStance = () => {
-  slipper.dataset.stance = stanceSelect.value;
 };
 
 const pushLog = (phrase) => {
@@ -97,8 +66,7 @@ const pushLog = (phrase) => {
 };
 
 const triggerSlap = () => {
-  const mode = chantModeSelect.value;
-  const phrase = getPhrase(mode);
+  const phrase = getPhrase();
 
   chantDisplay.textContent = phrase;
   pushLog(phrase);
@@ -129,13 +97,3 @@ document.addEventListener("keydown", (event) => {
   event.preventDefault();
   triggerSlap();
 });
-
-stanceSelect.addEventListener("change", updateStance);
-
-chantModeSelect.addEventListener("change", () => {
-  if (chantModeSelect.value !== "crescendo") {
-    resetCrescendo();
-  }
-});
-
-updateStance();
