@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>شبشب الهجاء</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="header">
+        <div>
+          <p class="tag">لعبة ترفيهية سريعة</p>
+          <h1>شبشب الهجاء</h1>
+          <p class="subtitle">اضغط الزر واضرب الصورة، والجملة تتكرر بطريقتك.</p>
+        </div>
+        <div class="controls">
+          <label class="control">
+            <span>مقام النعل والحذاء</span>
+            <select id="stance">
+              <option value="top">من الأعلى</option>
+              <option value="left">من اليسار</option>
+              <option value="right">من اليمين</option>
+              <option value="bottom">من الأسفل</option>
+            </select>
+          </label>
+          <label class="control">
+            <span>موضع الهجاء</span>
+            <select id="chantMode">
+              <option value="sequence">تتابع</option>
+              <option value="random">عشوائي</option>
+              <option value="crescendo">تصاعدي</option>
+            </select>
+          </label>
+        </div>
+      </header>
+
+      <main class="main">
+        <section class="stage">
+          <div class="target-wrap" id="targetWrap">
+            <img id="target" class="target" alt="الصورة المستهدفة" />
+            <div class="slipper" id="slipper" aria-hidden="true">🩴</div>
+          </div>
+          <button id="slapBtn" class="slap-btn">اضرب بالشبشب</button>
+          <p class="hint">زر المسافة أو Enter يشتغل كمان.</p>
+        </section>
+
+        <section class="panel">
+          <h2>موضع الهجاء</h2>
+          <div id="chantDisplay" class="chant-display" aria-live="polite">
+            جاهز للضربة الأولى.
+          </div>
+          <ul id="chantLog" class="chant-log"></ul>
+        </section>
+      </main>
+
+      <footer class="footer">
+        ضع صورتك في المجلد <span class="mono">assets</span> باسم
+        <span class="mono">target.png</span> أو <span class="mono">target.jpg</span>.
+      </footer>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

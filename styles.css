@@ -1,0 +1,263 @@
+:root {
+  color-scheme: light;
+  --bg: #f6f1e6;
+  --panel: #fff7e0;
+  --ink: #2d2620;
+  --accent: #ff784f;
+  --border: #2d2620;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Courier New", "Cairo", monospace;
+  background: var(--bg);
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+.app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 24px 40px;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+h1,
+h2 {
+  margin: 0 0 12px;
+  font-size: 28px;
+}
+
+.tag {
+  margin: 0 0 8px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 14px;
+}
+
+.controls {
+  display: grid;
+  gap: 12px;
+  min-width: 240px;
+}
+
+.control {
+  display: grid;
+  gap: 8px;
+  font-size: 12px;
+}
+
+select {
+  padding: 10px 12px;
+  border: 2px solid var(--border);
+  background: #fff;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.main {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(240px, 340px);
+  gap: 32px;
+}
+
+.stage {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+}
+
+.target-wrap {
+  position: relative;
+  width: min(420px, 100%);
+  aspect-ratio: 1 / 1;
+  border: 4px solid var(--border);
+  background: var(--panel);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.target-wrap.missing::after {
+  content: "ضع الصورة في assets/target.png";
+  position: absolute;
+  padding: 12px;
+  border: 2px dashed var(--border);
+  background: #fff;
+  font-size: 12px;
+  text-align: center;
+  max-width: 70%;
+}
+
+.target {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.slipper {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 72px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.slipper[data-stance="top"] {
+  --slap-x: 0px;
+  --slap-y: -180px;
+  --slap-rot: -25deg;
+}
+
+.slipper[data-stance="left"] {
+  --slap-x: -180px;
+  --slap-y: 0px;
+  --slap-rot: 10deg;
+}
+
+.slipper[data-stance="right"] {
+  --slap-x: 180px;
+  --slap-y: 0px;
+  --slap-rot: -10deg;
+}
+
+.slipper[data-stance="bottom"] {
+  --slap-x: 0px;
+  --slap-y: 180px;
+  --slap-rot: 15deg;
+}
+
+.slipper.slap {
+  opacity: 1;
+  animation: slap 260ms steps(4) both;
+}
+
+@keyframes slap {
+  0% {
+    transform: translate(-50%, -50%)
+      translate(var(--slap-x, 0px), var(--slap-y, -140px))
+      rotate(var(--slap-rot, 0deg));
+  }
+  70% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+}
+
+.target-wrap.hit {
+  animation: hit 120ms steps(2) both;
+}
+
+@keyframes hit {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-4px, 2px);
+  }
+  100% {
+    transform: translate(2px, -2px);
+  }
+}
+
+.slap-btn {
+  padding: 12px 18px;
+  background: var(--accent);
+  color: #fff;
+  border: 3px solid var(--border);
+  font-size: 16px;
+  cursor: pointer;
+  font-family: inherit;
+  letter-spacing: 1px;
+  box-shadow: 4px 4px 0 var(--border);
+}
+
+.slap-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--border);
+}
+
+.hint {
+  margin: 0;
+  font-size: 12px;
+}
+
+.panel {
+  padding: 20px;
+  border: 3px solid var(--border);
+  background: #fff;
+  display: grid;
+  gap: 16px;
+}
+
+.chant-display {
+  min-height: 80px;
+  padding: 14px;
+  border: 2px dashed var(--border);
+  background: var(--panel);
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+.chant-log {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.chant-log li {
+  padding: 8px;
+  border: 2px solid var(--border);
+  background: #fffdf7;
+}
+
+.footer {
+  margin-top: 32px;
+  font-size: 12px;
+  border-top: 2px dashed var(--border);
+  padding-top: 16px;
+}
+
+.mono {
+  font-family: "Courier New", monospace;
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 2px 6px;
+}
+
+@media (max-width: 900px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+
+  .target-wrap {
+    width: 100%;
+  }
+}
