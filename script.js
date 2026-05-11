@@ -1,12 +1,8 @@
 const phrases = [
-  "المرتد المونولوجي حضيض الدنى",
-  "معهد معتوه ما فنى",
-  "جنى على نفسه ما قد جنى",
-  "يذوي هذا المكان فيهوي بنا",
-  "i will sing it on the nai.. fuuuck hti",
-  "say with me say.. this one is ugly",
-  "Creatures and bird.. shout that he is a weird",
-  "oh my god.. make this shit be sad",
+  "اديلوو على وشوو",
+  "اديلوو على وشوو",
+  "اديلوو على وشوو",
+  "اديلوو على وشوو",
 ];
 
 const targetSources = [
